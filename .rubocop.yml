@@ -1,8 +1,62 @@
-# Omakase Ruby styling for Rails
-inherit_gem: { rubocop-rails-omakase: rubocop.yml }
+plugins:
+  - rubocop-rails
+  - rubocop-rspec
 
-# Overwrite or add rules to create your own house style
-#
-# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
-# Layout/SpaceInsideArrayLiteralBrackets:
-#   Enabled: false
+AllCops:
+  TargetRubyVersion: 3.3
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+    - 'tmp/**/*'
+    - 'config/initializers/*'
+    - 'config/environments/**/*'
+
+
+Layout/LineLength:
+  Max: 120
+
+Metrics/AbcSize:
+  Max: 30
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'config/routes.rb'
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/ClassLength:
+  Max: 200
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: true
+  Max: 4
+
+RSpec/ExampleLength:
+  Max: 10
+
+RSpec/ContextWording:
+  Enabled: true
+  Prefixes:
+    - 'when'
+    - 'should'
+    - 'with'
+    - 'without'
+    - 'authenticate'
+    - 'swagger authenticate'
+
+Style/LambdaCall:
+  Enabled: false
+
+Rails/StrongParametersExpect:
+  Enabled: false
