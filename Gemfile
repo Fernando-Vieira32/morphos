@@ -30,5 +30,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'rspec-rails'
   gem 'selenium-webdriver'
+  gem 'simplecov', require: false
 end
