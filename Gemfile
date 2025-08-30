@@ -12,10 +12,10 @@ gem 'solid_cable'
 gem 'solid_cache'
 gem 'solid_queue'
 gem 'stimulus-rails'
+gem 'tailwindcss-rails'
 gem 'thruster', require: false
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[windows jruby]
-gem "tailwindcss-rails"
 
 group :development, :test do
   gem 'brakeman', require: false
