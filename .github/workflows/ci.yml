@@ -13,4 +13,40 @@ jobs:
           ruby-version: '3.3.4'
           bundler-cache: true
       - name: Lint Ruby files
-        run: bin/qa 
+        run: bin/qa
+  rspec:
+    runs-on: ubuntu-22.04
+    services:
+      postgres:
+        image: postgres:16.6-alpine
+        ports:
+          - "5432:5432"
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+    env:
+      RAILS_ENV: test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_HOST: localhost
+      TEST_DATA_BASE: morphos_test
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3.4'
+          bundler-cache: true
+      - name: Set up database schema
+        run: bin/rails db:create db:schema:load
+      - name: Prepare
+        run: bin/rails test:prepare test
+      - name: Run tests
+        run: bin/rspec spec
+      - name: Upload coverage result
+        if: failure()
+        uses: actions/upload-artifact@main
+        with:
+          name: coverage
+          path: coverage/
