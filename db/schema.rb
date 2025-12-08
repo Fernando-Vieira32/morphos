@@ -10,8 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 0) do
+ActiveRecord::Schema[8.0].define(version: 2025_11_27_090500) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
+  create_table "regex_tool_variations", force: :cascade do |t|
+    t.bigint "regex_tool_id", null: false
+    t.string "key", null: false
+    t.string "label", null: false
+    t.string "pattern"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["regex_tool_id", "key"], name: "index_regex_tool_variations_on_regex_tool_id_and_key", unique: true
+    t.index ["regex_tool_id"], name: "index_regex_tool_variations_on_regex_tool_id"
+  end
+
+  create_table "regex_tools", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "regex_tool_variations", "regex_tools"
 end

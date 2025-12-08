@@ -29,3 +29,27 @@
 
 en:
   hello: "Hello world"
+
+  regex_tools:
+    counter:
+      name: "Counter"
+      description: "Tool for counting characters, words and patterns."
+      variations:
+        all:
+          label: "All characters"
+          description: "Counts all characters."
+        letters:
+          label: "Letters (A-Z)"
+          description: "Counts latin letters (no accents)."
+        digits:
+          label: "Digits"
+          description: "Counts digits 0-9."
+        words:
+          label: "Words"
+          description: "Counts words (separated by spaces)."
+        uppercase:
+          label: "Uppercase letters"
+          description: "Counts uppercase letters."
+        whitespace:
+          label: "Whitespace"
+          description: "Counts spaces, tabs and line breaks."
