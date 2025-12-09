@@ -1,0 +1,27 @@
+pt-BR:
+  regex_tools:
+    counter:
+      name: "Contador"
+      description: "Ferramenta para contar caracteres, palavras e padrões."
+      variations:
+        all:
+          label: "Todos os caracteres"
+          description: "Conta todos os caracteres."
+        letters:
+          label: "Letras (A-Z)"
+          description: "Conta letras latinas (sem acentos)."
+        digits:
+          label: "Dígitos"
+          description: "Conta dígitos de 0 a 9."
+        words:
+          label: "Palavras"
+          description: "Conta palavras (separadas por espaços)."
+        uppercase:
+          label: "Letras maiúsculas"
+          description: "Conta letras maiúsculas."
+        whitespace:
+          label: "Espaços em branco"
+          description: "Conta espaços, tabs e quebras de linha."
+    simple_counter:
+      name: "Contador Simples"
+      description: "Contador de caracteres simples sem variações."

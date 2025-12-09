@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
   resources :home, only: %i[index]
 
+  # Rotas para o contador de texto
+  get 'regex_tools', to: 'regex_tools#index'
+
   root 'home#index'
 
   # Defines the root path route ("/")

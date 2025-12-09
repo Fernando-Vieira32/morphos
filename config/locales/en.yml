@@ -1,31 +1,27 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  regex_tools:
+    counter:
+      name: "Counter"
+      description: "Tool for counting characters, words and patterns."
+      variations:
+        all:
+          label: "All characters"
+          description: "Counts all characters."
+        letters:
+          label: "Letters (A-Z)"
+          description: "Counts latin letters (no accents)."
+        digits:
+          label: "Digits"
+          description: "Counts digits 0-9."
+        words:
+          label: "Words"
+          description: "Counts words (separated by spaces)."
+        uppercase:
+          label: "Uppercase letters"
+          description: "Counts uppercase letters."
+        whitespace:
+          label: "Whitespace"
+          description: "Counts spaces, tabs and line breaks."
+    simple_counter:
+      name: "Simple Counter"
+      description: "Simple character counter without variations."
