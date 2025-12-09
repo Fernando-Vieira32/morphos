@@ -1,9 +1,8 @@
 class RegexToolsController < ApplicationController
   def index
-    @regex_tools = RegexTool.includes(:regex_tool_variations).order(:id)
-    @tools = @regex_tools
+    @tools = RegexTool.includes(:regex_tool_variations).order(:id)
 
-    @tools_json = @regex_tools.each_with_object({}) do |tool, hash|
+    @tools_json = @tools.each_with_object({}) do |tool, hash|
       hash[tool.id.to_s] = {
         id: tool.id,
         name: tool.name,
@@ -11,7 +10,7 @@ class RegexToolsController < ApplicationController
       }
     end.to_json
 
-    @variations_json = @regex_tools.each_with_object({}) do |tool, hash|
+    @variations_json = @tools.each_with_object({}) do |tool, hash|
       hash[tool.id.to_s] = tool.regex_tool_variations.order(:id).map do |v|
         { id: v.id, pattern: v.pattern, label: v.label, description: v.description }
       end
