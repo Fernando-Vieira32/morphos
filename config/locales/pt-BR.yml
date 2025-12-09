@@ -1,10 +1,8 @@
 pt-BR:
-  hello: "Olá mundo"
-
   regex_tools:
     counter:
-      name: "Contagem"
-      description: "Ferramenta para contagem de caracteres, palavras e padrões."
+      name: "Contador"
+      description: "Ferramenta para contar caracteres, palavras e padrões."
       variations:
         all:
           label: "Todos os caracteres"
@@ -14,7 +12,7 @@ pt-BR:
           description: "Conta letras latinas (sem acentos)."
         digits:
           label: "Dígitos"
-          description: "Conta dígitos 0-9."
+          description: "Conta dígitos de 0 a 9."
         words:
           label: "Palavras"
           description: "Conta palavras (separadas por espaços)."
@@ -22,5 +20,8 @@ pt-BR:
           label: "Letras maiúsculas"
           description: "Conta letras maiúsculas."
         whitespace:
-          label: "Espaços"
+          label: "Espaços em branco"
           description: "Conta espaços, tabs e quebras de linha."
+    simple_counter:
+      name: "Contador Simples"
+      description: "Contador de caracteres simples sem variações."

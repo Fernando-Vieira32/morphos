@@ -2,11 +2,27 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = ["text", "result", "mode", "description", "tool"]
-  static values = { variations: Object }
+  static values = { tools: Object, variations: Object }
 
   connect() {
     // initialize current tool/variation
     this.currentToolId = this.toolTarget ? this.toolTarget.value : null
+
+    // load initial description
+    if (this.hasDescriptionTarget && this.currentToolId) {
+      const variations = this.variationsValue[this.currentToolId] || []
+      const tools = this.toolsValue || {}
+      const tool = tools[this.currentToolId]
+
+      if (this.hasModeTarget && variations.length > 0) {
+        const selectedId = this.modeTarget.value
+        const found = variations.find(v => String(v.id) === String(selectedId))
+        this.descriptionTarget.textContent = found ? (found.description || '') : ''
+      } else if (tool && tool.description) {
+        // No variations, show tool description
+        this.descriptionTarget.textContent = tool.description
+      }
+    }
   }
 
   updateTool(event) {
@@ -14,6 +30,8 @@ export default class extends Controller {
     this.currentToolId = toolId
     const variations = this.variationsValue || {}
     const list = variations[toolId] || []
+    const tools = this.toolsValue || {}
+    const tool = tools[toolId]
 
     // repopulate mode select
     if (this.hasModeTarget) {
@@ -25,9 +43,18 @@ export default class extends Controller {
         opt.textContent = v.label
         this.modeTarget.appendChild(opt)
       })
-      // update description
-      const first = list[0]
-      this.descriptionTarget.textContent = first ? first.description || '' : ''
+
+      // update description: show variation description if exists, otherwise show tool description
+      if (this.hasDescriptionTarget) {
+        const first = list[0]
+        if (first && first.description) {
+          this.descriptionTarget.textContent = first.description
+        } else if (tool && tool.description) {
+          this.descriptionTarget.textContent = tool.description
+        } else {
+          this.descriptionTarget.textContent = ''
+        }
+      }
     }
   }
 

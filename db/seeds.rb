@@ -31,3 +31,8 @@ variations.each do |v|
 		rv.description = v[:description]
 	end
 end
+
+# Tool without variations for testing
+RegexTool.find_or_create_by!(name: 'simple_counter') do |t|
+	t.description = 'Simple character counter without variations.'
+end
