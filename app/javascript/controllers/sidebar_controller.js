@@ -10,9 +10,17 @@ export default class extends Controller {
   toggle() {
     const sidebar = this.sidebarTarget
     const overlay = this.overlayTarget
+    const isHidden = sidebar.classList.contains("-translate-x-full")
 
-    sidebar.classList.toggle("-translate-x-full")
-    overlay.classList.toggle("hidden")
+    if (isHidden) {
+      // Abrir
+      sidebar.classList.remove("-translate-x-full")
+      overlay.classList.remove("hidden")
+    } else {
+      // Fechar
+      sidebar.classList.add("-translate-x-full")
+      overlay.classList.add("hidden")
+    }
   }
 
   close() {
