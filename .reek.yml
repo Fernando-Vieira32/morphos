@@ -1,0 +1,16 @@
+---
+exclude_paths:
+  - vendor/**/*
+  - node_modules/**/*
+  - db/migrate/**/*
+  - bin/**/*
+  - config/**/*
+
+
+detectors:
+  IrresponsibleModule:
+    enabled: false
+  UtilityFunction:
+    enabled: false
+  InstanceVariableAssumption:
+    enabled: false
