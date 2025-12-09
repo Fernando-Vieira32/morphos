@@ -23,6 +23,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry-nav'
+  gem 'reek'
 end
 
 group :development do
