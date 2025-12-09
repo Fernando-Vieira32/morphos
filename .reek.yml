@@ -2,10 +2,7 @@
 exclude_paths:
   - vendor/**/*
   - node_modules/**/*
-  - db/migrate/**/*
-  - bin/**/*
-  - config/**/*
-  - spec/**/*
+
 
 detectors:
   IrresponsibleModule:
