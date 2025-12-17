@@ -1,5 +1,9 @@
 pt-BR:
   regex_tools:
+    index:
+      variation_mode: Variação / Modo
+      enter_text: Digite seu texto
+      tool: Ferramenta
     counter:
       name: "Contador"
       description: "Ferramenta para contar caracteres, palavras e padrões."
@@ -25,3 +29,7 @@ pt-BR:
     simple_counter:
       name: "Contador Simples"
       description: "Contador de caracteres simples sem variações."
+
+
+
+

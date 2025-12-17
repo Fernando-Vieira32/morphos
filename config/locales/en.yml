@@ -1,5 +1,9 @@
 en:
   regex_tools:
+    index:
+      variation_mode: "Variation / Mode"
+      enter_text: "Enter your text"
+      tool: "Tool"
     counter:
       name: "Counter"
       description: "Tool for counting characters, words and patterns."
